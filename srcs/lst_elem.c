@@ -6,13 +6,18 @@
 /*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/06 12:42:26 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/06 14:22:33 by kdouveno         ###   ########.fr       */
+/*   Updated: 2020/02/10 16:22:15 by kdouveno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lst.h"
 
-void		*lst_elem(t_list ptr)
+t_list	lst_getn(t_list ptr, size_t n)
 {
-	return ptr + sizeof(t_list);
+	while (ptr && n > 0)
+	{
+		ptr = LSTN(ptr);
+		n--;
+	}
+	return (ptr);
 }

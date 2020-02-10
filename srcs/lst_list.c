@@ -6,12 +6,12 @@
 /*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:58:22 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/06 12:52:13 by kdouveno         ###   ########.fr       */
+/*   Updated: 2020/02/10 16:19:46 by kdouveno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_list.h"
-#include <stdlib.h>
+#include "../includes/lst.h"
+#include <string.h>
 
 
 int			lst_push(t_list *begin, const void *data, const size_t data_size)
@@ -20,28 +20,37 @@ int			lst_push(t_list *begin, const void *data, const size_t data_size)
 
 	if (!(out = malloc(sizeof(t_list) + data_size)))
 		return (1);
-	*(t_list*)*begin = *begin;
-	memcpy(out, data, data_size + sizeof(t_list));
+	memcpy(LSTA(out), data, data_size);
+	LSTN(out) = *begin;
 	*begin = out;
+	return (0);
 }
 
-void		lst_set(t_list ptr, const void *data, const size_t data_size)
+int			lst_set(t_list ptr, const void *data, const size_t data_size)
 {
-	memcpy(lst_elem(ptr), data, data_size);
+	memcpy(LSTA(ptr), data, data_size);
+	return (0);
 }
 
-void		lst_apnd(t_list *ptr, const void *data, const size_t data_size)
+int			lst_setn(t_list ptr, size_t n, const void *data, const size_t data_size)
+{
+	return (lst_set(lst_getn(ptr, n), data, data_size));
+}
+
+int			lst_apnd(t_list *ptr, const void *data, const size_t data_size)
 {
 	t_list	out;
+	t_list	begin;
 
 	if (!*ptr)
 		lst_push(ptr, data, data_size);
 	if (!(out = malloc(sizeof(t_list) + data_size)))
 		return (1);
-	*(t_list*)out = NULL;
-	while (*(t_list*)*ptr != NULL)
-	{
-		*ptr = *(t_list*)*ptr;
-	}
-	*(t_list*)*ptr = out;
+	LSTN(out) = NULL;
+	memcpy(LSTA(out), data, data_size);
+	begin = *ptr;
+	while (LSTN(begin) != NULL)
+		begin = LSTN(begin);
+	LSTN(begin) = out;
+	return (0);
 }
