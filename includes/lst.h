@@ -6,7 +6,7 @@
 /*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:50:29 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/10 16:25:00 by kdouveno         ###   ########.fr       */
+/*   Updated: 2020/02/10 17:29:49 by kdouveno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ int		lst_apnd(t_list *ptr, const void *data, const size_t data_size);
 
 t_list	lst_getn(t_list ptr, size_t n);
 int		lst_setn(t_list ptr, size_t n, const void *data, const size_t data_size);
+
+size_t	lst_size(t_list lst);
+
+void	*lst_totab(t_list lst, const size_t data_size);
+
 #endif
