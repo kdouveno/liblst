@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   lst_delet.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 17:20:56 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/10 18:00:41 by kdouveno         ###   ########.fr       */
+/*   Created: 2020/02/10 17:32:41 by kdouveno          #+#    #+#             */
+/*   Updated: 2020/02/10 17:50:22 by kdouveno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lst.h"
 
-size_t	lst_size(t_list l)
+void	lst_deln(t_list	*lst, size_t n)
 {
-	int i;
+	t_list	tmp;
 
-	i = 0;
-	while (l)
+	while (*lst && n > 0)
 	{
-		l = LSTN(l);
-		i++;
+		tmp = *lst;
+		*lst = LSTN(*lst);
+		free(tmp);
+		n--;
 	}
-	return (i);
 }
 
-t_list	lst_create(const void *data, const size_t data_size)
+void	lst_deli(t_list *lst, size_t i)
 {
-	t_list	out;
+	t_list	*tmp;
+	t_list	*tofree;
 
-	if (!(out = malloc(sizeof(t_list) + data_size)))
-		return (1);
-	memcpy(LSTA(out), data, data_size);
-	LSTN(out) = NULL;
-	return (out);
+	if (!i)
+		return (lst_deln(lst, 1));
+	tmp = *lst;
+	while (tmp && i > 1)
+	{
+		tmp = LSTN(tmp);
+	}
+	if (!tmp || !LSTN(tmp))
+		return ;
+	tofree = LSTN(tmp);
+	LSTN(tmp) = LSTN(tofree);
+	free(tofree);
 }
+
