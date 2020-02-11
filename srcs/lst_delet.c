@@ -6,7 +6,7 @@
 /*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:32:41 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/10 17:50:22 by kdouveno         ###   ########.fr       */
+/*   Updated: 2020/02/11 15:11:12 by kdouveno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	lst_deli(t_list *lst, size_t i)
 	while (tmp && i > 1)
 	{
 		tmp = LSTN(tmp);
+		i--;
 	}
 	if (!tmp || !LSTN(tmp))
 		return ;

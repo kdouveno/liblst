@@ -6,7 +6,7 @@
 /*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:50:29 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/10 18:10:05 by kdouveno         ###   ########.fr       */
+/*   Updated: 2020/02/11 15:57:27 by kdouveno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,29 @@
 
 typedef void* t_list;
 
-int		lst_push(t_list *begin, const void *data, const size_t data_size);
-int		lst_set(t_list ptr, const void *data, const size_t data_size);
-int		lst_apnd(t_list *ptr, const void *data, const size_t data_size);
+typedef struct	s_lsttab
+{
+	size_t		e_size;
+	size_t		b_size;
+	void		*tab;
+}				t_lsttab;
 
-int		lst_pushl(t_list *begin, t_list l);
-int		lst_apndl(t_list *ptr, t_list l);
+int			lst_push(t_list *begin, const void *data, const size_t data_size);
+int			lst_set(t_list ptr, const void *data, const size_t data_size);
+int			lst_apnd(t_list *ptr, const void *data, const size_t data_size);
 
-void	lst_deln(t_list	*lst, size_t n);
-void	lst_deli(t_list	*lst, size_t i);
+int			lst_pushl(t_list *begin, t_list l);
+int			lst_apndl(t_list *ptr, t_list l);
 
-t_list	lst_getn(t_list ptr, size_t n);
-int		lst_setn(t_list ptr, size_t n, const void *data, const size_t data_size);
+void		lst_deln(t_list	*lst, size_t n);
+void		lst_deli(t_list	*lst, size_t i);
 
-t_list	lst_create(const void *data, const size_t data_size);
-size_t	lst_size(t_list lst);
+t_list		lst_getn(t_list ptr, size_t n);
+int			lst_setn(t_list ptr, size_t n, const void *data, const size_t data_size);
 
-void	*lst_totab(t_list lst, const size_t data_size);
+t_list		lst_create(const void *data, const size_t data_size);
+size_t		lst_size(t_list lst);
+
+t_lsttab	lst_totab(t_list lst, const size_t data_size);
 
 #endif

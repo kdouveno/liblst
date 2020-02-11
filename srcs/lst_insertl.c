@@ -6,7 +6,7 @@
 /*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:58:22 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/10 18:11:14 by kdouveno         ###   ########.fr       */
+/*   Updated: 2020/02/11 14:55:21 by kdouveno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int			lst_apndl(t_list *ptr, t_list l)
 	t_list	begin;
 
 	if (!*ptr)
-		lst_push(ptr, l);
+		lst_pushl(ptr, l);
 	begin = *ptr;
 	while (LSTN(begin) != NULL)
 		begin = LSTN(begin);
