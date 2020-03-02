@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdouveno <kdouveno@student.42.fr>          +#+  +:+       +#+        */
+/*   By: karldouvenot <karldouvenot@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:50:29 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/02/11 15:57:27 by kdouveno         ###   ########.fr       */
+/*   Updated: 2020/03/02 12:03:36 by karldouveno      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ t_list		lst_create(const void *data, const size_t data_size);
 size_t		lst_size(t_list lst);
 
 t_lsttab	lst_totab(t_list lst, const size_t data_size);
+
+void		lst_each(t_list lst, void (*fx)(void*, size_t));
 
 #endif
