@@ -6,7 +6,7 @@
 /*   By: karldouvenot <karldouvenot@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 16:50:29 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/04/27 19:03:02 by karldouveno      ###   ########.fr       */
+/*   Updated: 2020/05/18 16:03:55 by karldouveno      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int			lst_rev(t_list *lst);
 
 t_lsttab	lst_totab(t_list lst, const size_t data_size);
 
+void		lst_each(t_list list, void (*fx)(void *lst));
 void		lst_each_i(t_list lst, void (*fx)(void *lst, size_t index));
 void		lst_each_di(t_list lst, void (*fx)(void *lst, void *data, size_t index), void *data);
 

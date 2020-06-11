@@ -6,7 +6,7 @@
 /*   By: karldouvenot <karldouvenot@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 11:54:12 by karldouveno       #+#    #+#             */
-/*   Updated: 2020/04/27 16:48:58 by karldouveno      ###   ########.fr       */
+/*   Updated: 2020/05/18 16:02:15 by karldouveno      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ void	lst_each_i(t_list lst, void (*fx)(void*, size_t))
 	while(lst)
 	{
 		fx(LSTA(lst), i++);
+		lst = LSTN(lst);
+	}
+}
+
+void	lst_each(t_list lst, void (*fx)(void*))
+{
+	while(lst)
+	{
+		fx(LSTA(lst));
 		lst = LSTN(lst);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: karldouvenot <karldouvenot@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 17:20:56 by kdouveno          #+#    #+#             */
-/*   Updated: 2020/04/29 17:08:26 by karldouveno      ###   ########.fr       */
+/*   Updated: 2020/05/05 19:59:17 by karldouveno      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int		lst_rev(t_list *lst)
 		lst_pushl(&new, tmp);
 		tmp = next;
 	}
+	*lst = new;
 	return (0);
 }
